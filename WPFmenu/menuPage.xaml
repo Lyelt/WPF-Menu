@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="WPFmenu.menuPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPFmenu"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="600"
+             xmlns:Dialogs="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+             xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:Behaviors="http://metro.mahapps.com/winfx/xaml/shared"
+             xmlns:Custom="http://metro.mahapps.com/winfx/xaml/controls"
+             Background="#FFF9F9F9">
+    <Grid/>
+</UserControl>
