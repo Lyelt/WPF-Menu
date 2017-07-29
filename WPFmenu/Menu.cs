@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Xml;
 using System.Xml.Linq;
+using WPFMenu;
 
-namespace Menu
+namespace WPFmenu
 {
     public class Menu
     {

@@ -21,9 +21,20 @@ namespace WPFmenu
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
+        public List<Menu> menuList;
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void menuItem_MouseDoubleClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddMenu_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

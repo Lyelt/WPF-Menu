@@ -21,80 +21,48 @@
         <Grid>
             <TabControl Margin="0,0,0,25" Background="White" Grid.ColumnSpan="2">
                 <TabItem Header="Menus">
-                    <DataGrid Name="menuGrid"
+                    <DockPanel>
+                        <TabControl Name="menusTabControl" Background="White" DockPanel.Dock="Top" Height="30">
+                            <TabItem>
+                                <TabItem.HeaderTemplate>
+                                    <DataTemplate>
+                                        <Button Style="{DynamicResource MetroCircleButtonStyle}"></Button>
+                                    </DataTemplate>
+                                </TabItem.HeaderTemplate>
+                            </TabItem>
+                        </TabControl>
+                        <DataGrid Name="menuItemGrid"
                               AutoGenerateColumns="False"
                               Background="White"
                               CanUserAddRows="True"
                               CanUserDeleteRows="True"
                               IsReadOnly="False"
-                              ItemsSource="{Binding Source=_bridges}"
-                              MouseDoubleClick="bridgeGrid_MouseDoubleClick"
+                              ItemsSource="{Binding Source=menuList[0]}"
+                              MouseDoubleClick="menuItem_MouseDoubleClick"
                               SelectedItem="{Binding SelectedRow,
                                                     Mode=TwoWay}"
-                              SelectionMode="Single"
+                              SelectionMode="Extended"
                               VirtualizingPanel.IsVirtualizing="True">
-                        <DataGrid.ContextMenu>
-                            <ContextMenu>
-                                <MenuItem Click="ViewXML_Click" Header="View XML" />
-                                <Separator />
-                                <MenuItem Click="ManageMultiportButton_Click" Header="Manage Multiport" />
-                                <MenuItem Click="ManageMoxaButton_Click" Header="Manage Moxa" />
-                                <MenuItem Click="ManageWirelessButton_Click" Header="Manage Wireless" />
-                                <Separator />
-                                <MenuItem Click="RebootMuliport_Click" Header="Reboot Multiport" />
-                                <MenuItem Click="MenuItem_Click" Header="Suspend" />
-                            </ContextMenu>
-                        </DataGrid.ContextMenu>
-                        <DataGrid.Columns>
-                            <DataGridTemplateColumn Width="110"
-                                                        Header="Name"
-                                                        SortMemberPath="Name">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <StackPanel Background="{Binding Path=BackColor}" Orientation="Horizontal">
-                                            <Image Name="RowImage"
-                                                       Width="20"
-                                                       Height="22"
-                                                       Margin="5,2,0,2"
-                                                       Source="{Binding Path=StatusImage}" />
-                                            <TextBlock Margin="5,3,0,0"
-                                                           HorizontalAlignment="Center"
-                                                           Foreground="{Binding Path=ForeColor}"
-                                                           Text="{Binding Path=State}" />
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                            <DataGridTemplateColumn Width="100"
-                                                        Header="Type(s)"
-                                                        SortMemberPath="Type">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <StackPanel Background="{Binding Path=PingBackColor}" Orientation="Horizontal">
-                                            <Label Content="{Binding Path=PingStatus}" Foreground="{Binding Path=ForeColor}" />
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                            <DataGridTextColumn Width="85"
-                                                    Header="Ethnicity">
-                                <DataGridTextColumn.ElementStyle>
-                                    <Style TargetType="TextBlock">
-                                        <Setter Property="HorizontalAlignment" Value="Center" />
-                                    </Style>
-                                </DataGridTextColumn.ElementStyle>
-                            </DataGridTextColumn>
-                            <DataGridTextColumn Width="75"
-                                                    Binding="{Binding Path=Host}"
-                                                    Header="Meal(s)">
-                                <DataGridTextColumn.ElementStyle>
-                                    <Style TargetType="TextBlock">
-                                        <Setter Property="HorizontalAlignment" Value="Center" />
-                                    </Style>
-                                </DataGridTextColumn.ElementStyle>
-                            </DataGridTextColumn>
-                        </DataGrid.Columns>
-                    </DataGrid>
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Width="110"
+                                                Header="Name"
+                                                Binding="{Binding Path=ItemName}">
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Width="100"
+                                                Header="Types"
+                                                Binding="{Binding Path=ItemTypes}">
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Width="85"
+                                                Header="Ethnicity"
+                                                Binding="{Binding Path=ItemEthnicity}">
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Width="75"
+                                                Binding="{Binding Path=ItemMeals}"
+                                                Header="Meal(s)">
+                                </DataGridTextColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </DockPanel>
                     <!-- All menus and their respective controls -->
                 </TabItem>
                 <TabItem Header="Fridge">
