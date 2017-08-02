@@ -7,60 +7,50 @@
         xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:Behaviors="http://metro.mahapps.com/winfx/xaml/shared"
         xmlns:Custom="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         Background="#FFF9F9F9"
         TitleForeground="Gainsboro"
         ResizeMode="CanResizeWithGrip"
         Title="Menu Program" Height="800" Width="700">
-    <Custom:MetroWindow.LeftWindowCommands>
-        <Controls:WindowCommands>
-
-        </Controls:WindowCommands>
-    </Custom:MetroWindow.LeftWindowCommands>
 
     <Border BorderBrush="SteelBlue" BorderThickness="1" Background="White">
         <Grid>
             <TabControl Margin="0,0,0,25" Background="White" Grid.ColumnSpan="2">
                 <TabItem Header="Menus">
                     <DockPanel>
-                        <TabControl Name="menusTabControl" Background="White" DockPanel.Dock="Top" Height="30">
-                            <TabItem>
-                                <TabItem.HeaderTemplate>
-                                    <DataTemplate>
-                                        <Button Style="{DynamicResource MetroCircleButtonStyle}"></Button>
-                                    </DataTemplate>
-                                </TabItem.HeaderTemplate>
-                            </TabItem>
-                        </TabControl>
+                        <ToolBar Name="menusTabControl" Background="White" DockPanel.Dock="Top" Height="35" Margin="566,0,0,0" >
+                            <Button ToolTip="Upload Menu From File" Name="uploadMenuBtn" Click="uploadMenuBtn_Click" Style="{DynamicResource MetroCircleButtonStyle}" Height="30" Width="30">
+                                <Rectangle Height="10" Width="10" Fill="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}" >
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_upload}" />
+                                    </Rectangle.OpacityMask>
+                                </Rectangle>
+                            </Button>
+                            <Button ToolTip="Add New Menu" Name="addMenuBtn" Click="addMenuBtn_Click" Style="{DynamicResource MetroCircleButtonStyle}" Height="30" Width="30">
+                                <Rectangle Height="10" Width="10" Fill="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}" >
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_add}" />
+                                    </Rectangle.OpacityMask>
+                                </Rectangle>
+                            </Button>
+                            <Button ToolTip="Save Current Menu" Name="saveMenuBtn" Click="saveMenuBtn_Click" Style="{DynamicResource MetroCircleButtonStyle}" Height="30" Width="30">
+                                <Rectangle Height="10" Width="10" Fill="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}" >
+                                    <Rectangle.OpacityMask>
+                                        <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_save}" />
+                                    </Rectangle.OpacityMask>
+                                </Rectangle>
+                            </Button>
+                        </ToolBar>
                         <DataGrid Name="menuItemGrid"
-                              AutoGenerateColumns="False"
+                              AutoGenerateColumns="True"
+                              AutoGeneratingColumn="menuItemGrid_AutoGeneratingColumn"
                               Background="White"
                               CanUserAddRows="True"
                               CanUserDeleteRows="True"
                               IsReadOnly="False"
-                              ItemsSource="{Binding Source=menuList[0]}"
+                              ItemsSource="{Binding}"
                               MouseDoubleClick="menuItem_MouseDoubleClick"
-                              SelectedItem="{Binding SelectedRow,
-                                                    Mode=TwoWay}"
-                              SelectionMode="Extended"
-                              VirtualizingPanel.IsVirtualizing="True">
-                            <DataGrid.Columns>
-                                <DataGridTextColumn Width="110"
-                                                Header="Name"
-                                                Binding="{Binding Path=ItemName}">
-                                </DataGridTextColumn>
-                                <DataGridTextColumn Width="100"
-                                                Header="Types"
-                                                Binding="{Binding Path=ItemTypes}">
-                                </DataGridTextColumn>
-                                <DataGridTextColumn Width="85"
-                                                Header="Ethnicity"
-                                                Binding="{Binding Path=ItemEthnicity}">
-                                </DataGridTextColumn>
-                                <DataGridTextColumn Width="75"
-                                                Binding="{Binding Path=ItemMeals}"
-                                                Header="Meal(s)">
-                                </DataGridTextColumn>
-                            </DataGrid.Columns>
+                              SelectionMode="Extended">
                         </DataGrid>
                     </DockPanel>
                     <!-- All menus and their respective controls -->

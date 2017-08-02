@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Xml;
 using System.Xml.Linq;
-using WPFMenu;
 
 namespace WPFmenu
 {
@@ -29,6 +28,23 @@ namespace WPFmenu
             Name = fileName.Substring(fileNameStart, length);
             MenuFile = fileName;
             MenuItems = PopulateFromXML();
+        }
+
+        /// <summary>
+        /// Fill an existing menu item with data from a file. Returns the new menu
+        /// </summary>
+        /// <param name="fileName">The file containing the data to fill the menu with.</param>
+        /// <returns>The newly filled Menu object.</returns>
+        public Menu Fill ( string fileName )
+        {
+            int fileNameStart = fileName.LastIndexOf("\\") + 1;
+            int length = fileName.LastIndexOf(".") - fileNameStart;
+
+            Name = fileName.Substring(fileNameStart, length);
+            MenuFile = fileName;
+            MenuItems = PopulateFromXML();
+
+            return this;
         }
 
         public MenuItem GetItem(string itemName)

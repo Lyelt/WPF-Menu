@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<items>
+  <item>
+    <name>Angel Hair Pasta</name>
+    <ingredients>
+      <li>Pasta</li>
+      <li>Garlic</li>
+      <li>Rosemary</li>
+      <li>Thyme</li>
+      <li>Oregano</li>
+    </ingredients>
+    <types>
+      <li>Pasta</li>
+    </types>
+    <meals>
+      <li>Lunch</li>
+      <li>Dinner</li>
+    </meals>
+    <ethnicity>Italian</ethnicity>
+  </item>
+  <item>
+    <name>Chicken Taco Bowls</name>
+    <ingredients>
+      <li>Chicken</li>
+      <li>Garlic Powder</li>
+      <li>Onion Powder</li>
+      <li>Chili Powder</li>
+      <li>Paprika</li>
+      <li>Cumin</li>
+      <li>Salsa</li>
+      <li>Corn</li>
+      <li>Rice</li>
+    </ingredients>
+    <types>
+      <li>Rice</li>
+      <li>Chicken</li>
+    </types>
+    <meals>
+      <li>Lunch</li>
+      <li>Dinner</li>
+    </meals>
+    <ethnicity>Mexican</ethnicity>
+  </item>
+  <item>
+    <name>NewItemName</name>
+    <ingredients>
+      <li>ing1</li>
+      <li>ing2</li>
+    </ingredients>
+    <types>
+      <li>Misc</li>
+      <li>Pasta</li>
+    </types>
+    <meals>
+      <li>None</li>
+      <li>Breakfast</li>
+    </meals>
+    <ethnicity>None</ethnicity>
+  </item>
+</items>

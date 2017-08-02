@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
-namespace WPFMenu
+namespace WPFmenu
 {
     public class MenuItem
     {
